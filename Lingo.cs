@@ -7,11 +7,12 @@ namespace Lingo
     {
         public static void Main(string[] args)
         {
+            newGame:
             Console.WriteLine("Esi sveicināts spēlē LINGO!\nTavs uzdevums ir uzminēt vārdu piecu burtu garumā, neizmantojot garuma un mīkstinājuma zīmes.\n" +
                 "Ja vairs spēlēt nevēlies, tad ieraksti konsolē vārdu apnika un nospied ENTER.");
 
-            Lingo.inputMinejums();
-            Console.WriteLine(Lingo.Zvaigznes());
+            
+            
 
             string minejums;
             do
@@ -20,19 +21,22 @@ namespace Lingo
                 Console.Write("Ievadi vārdu: ");
                 minejums = Console.ReadLine().Trim().ToLower();
 
+                if (minejums == "apnika")
+                    break;
+
                 if (minejums.Length < 5 || minejums.Length > 5)
                 {
                     Console.WriteLine("Kļūda vārda ievadē!");
                     continue;
                 }
-                if (Lingo.Uzvara() == true)
+                if (Lingo.Uzvara())
                 {
                     Console.WriteLine("Apsveicu, tu uzminēji!");
-                    break;
+                    goto newGame;
                 }
 
                 Lingo.Zvaigznes();
-                Console.WriteLine(minejums);
+                Lingo.inputMinejums();
             } 
             while (minejums == "apnika");    
         }
@@ -57,10 +61,12 @@ namespace Lingo
             
             return stars;
         }
-
         public static char[] inputMinejums()
         {
-            char[] guess = Console.ReadLine().ToCharArray();
+            Console.WriteLine();
+            Console.Write("Ievadi vārdu: ");
+            string minejums = Console.ReadLine().Trim().ToLower();
+            char[] guess = minejums.ToCharArray();
             return guess;
         }
 
@@ -72,6 +78,7 @@ namespace Lingo
             foreach (int value in intersect)
             {
                 Console.WriteLine(value);
+               
             }
         }
 
@@ -87,11 +94,6 @@ namespace Lingo
                     return false;     
             }
             return true;
-        }
-
-        public static bool newGame()
-        {
-
         }
         
     }
