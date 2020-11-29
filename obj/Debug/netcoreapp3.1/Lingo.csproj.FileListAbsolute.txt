@@ -1,0 +1,13 @@
+C:\Repositories\MicrosoftVS\Lingo\bin\Debug\netcoreapp3.1\Lingo.exe
+C:\Repositories\MicrosoftVS\Lingo\bin\Debug\netcoreapp3.1\Lingo.deps.json
+C:\Repositories\MicrosoftVS\Lingo\bin\Debug\netcoreapp3.1\Lingo.runtimeconfig.json
+C:\Repositories\MicrosoftVS\Lingo\bin\Debug\netcoreapp3.1\Lingo.runtimeconfig.dev.json
+C:\Repositories\MicrosoftVS\Lingo\bin\Debug\netcoreapp3.1\Lingo.dll
+C:\Repositories\MicrosoftVS\Lingo\bin\Debug\netcoreapp3.1\Lingo.pdb
+C:\Repositories\MicrosoftVS\Lingo\obj\Debug\netcoreapp3.1\Lingo.csprojAssemblyReference.cache
+C:\Repositories\MicrosoftVS\Lingo\obj\Debug\netcoreapp3.1\Lingo.AssemblyInfoInputs.cache
+C:\Repositories\MicrosoftVS\Lingo\obj\Debug\netcoreapp3.1\Lingo.AssemblyInfo.cs
+C:\Repositories\MicrosoftVS\Lingo\obj\Debug\netcoreapp3.1\Lingo.csproj.CoreCompileInputs.cache
+C:\Repositories\MicrosoftVS\Lingo\obj\Debug\netcoreapp3.1\Lingo.dll
+C:\Repositories\MicrosoftVS\Lingo\obj\Debug\netcoreapp3.1\Lingo.pdb
+C:\Repositories\MicrosoftVS\Lingo\obj\Debug\netcoreapp3.1\Lingo.genruntimeconfig.cache

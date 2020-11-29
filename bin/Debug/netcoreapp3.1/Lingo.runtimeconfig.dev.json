@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Dirsa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Dirsa\\.nuget\\packages"
+    ]
+  }
+}
