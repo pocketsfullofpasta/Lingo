@@ -7,19 +7,20 @@ namespace Lingo
     {
         public static void Main(string[] args)
         {
-            newGame:
+
             Console.WriteLine("Esi sveicināts spēlē LINGO!\nTavs uzdevums ir uzminēt vārdu piecu burtu garumā, neizmantojot garuma un mīkstinājuma zīmes.\n" +
                 "Ja vairs spēlēt nevēlies, tad ieraksti konsolē vārdu apnika un nospied ENTER.");
 
-            
-            
 
-            string minejums;
+
+
+            string minamais = Lingo.Saraksts();
+            string atminets = minamais[0] + "****";
+            
             do
             {
-                Console.WriteLine();
-                Console.Write("Ievadi vārdu: ");
-                minejums = Console.ReadLine().Trim().ToLower();
+                string minejums = Lingo.inputMinejums();
+
 
                 if (minejums == "apnika")
                     break;
@@ -29,16 +30,13 @@ namespace Lingo
                     Console.WriteLine("Kļūda vārda ievadē!");
                     continue;
                 }
-                if (Lingo.Uzvara())
-                {
-                    Console.WriteLine("Apsveicu, tu uzminēji!");
-                    goto newGame;
-                }
 
-                Lingo.Zvaigznes();
-                Lingo.inputMinejums();
-            } 
-            while (minejums == "apnika");    
+                minamais = Zvaigznes(minejums, minamais, atminets);
+
+            }
+            while (Lingo.Uzvara(atminets));
+            
+
         }
 
         private static string Saraksts()
@@ -50,51 +48,42 @@ namespace Lingo
             return (word[index]);
         }
 
-        public static char[] Zvaigznes()
+        public static char[] Zvaigznes(string ievade, string uzmini, char[] atminets)
         {
-            char[] stars = Lingo.Saraksts().ToCharArray();
-
-            for (int i = 1; i < stars.Length; i++)
+            for (int i = 1; i < uzmini.Length; i++)
             {
-                stars[i] = '*';
+                if (ievade[i] == uzmini[i] && atminets[i] == '*')
+                {
+                    atminets[i] = ievade[i];
+                }
             }
-            
-            return stars;
+
+            return atminets;
         }
-        public static char[] inputMinejums()
+        public static string inputMinejums()
         {
             Console.WriteLine();
             Console.Write("Ievadi vārdu: ");
             string minejums = Console.ReadLine().Trim().ToLower();
-            char[] guess = minejums.ToCharArray();
-            return guess;
+            if (!minejums.Contains("*"))
+                Console.ForegroundColor = ConsoleColor.Green;
+
+            return minejums;
         }
 
-        public static char[] Progress()
+        public static bool Uzvara(string atminets)
         {
- 
-            var intersect = Lingo.Saraksts().Intersect(Lingo.inputMinejums());
 
-            foreach (int value in intersect)
+            if (atminets.IndexOf('*') == -1)
             {
-                Console.WriteLine(value);
-               
+                Console.WriteLine("Apsveicu, Tu uzvarēji!");
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
-        public static bool Uzvara()
-        {
-
-            if (Lingo.Saraksts().Length != Lingo.inputMinejums().Length) 
-                return false; 
-            
-            for (int i = 0; i < Lingo.Saraksts().Length; i++)
-            {
-                if (Lingo.Saraksts()[i] != Lingo.inputMinejums()[i]) 
-                    return false;     
-            }
-            return true;
-        }
-        
     }
-} 
+}
